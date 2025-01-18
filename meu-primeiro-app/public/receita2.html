@@ -10,21 +10,40 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-  <script type="text/babel">  
-    ReactDOM.render(
-    <div id="app">
-    <table id="tabela" border="1">
-        <thead>
-            <tr><th>Nome</th><th>Marca</th></tr>
-        </thead>
+  <script type="text/babel">
+    // Função Cabecalho
+    function Cabecalho() {
+      return <h1>Minha tabela de bebidas</h1>;
+    }
 
-        <tbody>
-            <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
-        </tbody>
-    </table>
-    </div>
-    ,
-    document.getElementById("app"))
+    // Função TabelaBebidas
+    function TabelaBebidas() {
+      return (
+        <table id="tabela" border="1">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Marca</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Havana</td>
+              <td>Engenho Anísio Santiago</td>
+            </tr>
+          </tbody>
+        </table>
+      );
+    }
+
+    // Renderizando no DOM
+    ReactDOM.createRoot(document.getElementById("root")).render(
+      <div id="app">
+        <Cabecalho />
+        <TabelaBebidas />
+      </div>
+    );
   </script>
 </body>
 </html>
+
