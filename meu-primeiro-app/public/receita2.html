@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ReactZero</title>
+  <title>Receita 2</title>
+  <link rel="stylesheet" href="receita2.css">
 </head>
 <body>
   <div id="root"></div>
 
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src = "https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src = "https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src = "https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
   <script type="text/babel">
-    // Função Cabecalho
+    const cachaças = [
+      { nome: "Havana", marca: "Engenho Anísio Santiago", teor: "44%"},
+      { nome: "Canarinha", marca: "Engenho Canarinha", teor: "44%" },
+      { nome: "Praianinha", marca: "Praiano", teor: "40%" },
+      { nome: "Ypióca", marca: "Ypióca", teor: "49%"},
+      { nome: "Umburana", marca: "Umburana", teor: "42%" },
+      { nome: "Tiê prata", marca: "Tiê prata", teor: "40%"}
+    ];
+
     function Cabecalho() {
-      return <h1>Minha tabela de bebidas</h1>;
+      return <h1>Minha tabela de cachaças</h1>;
     }
 
-    // Função TabelaBebidas
     function TabelaBebidas() {
       return (
         <table id="tabela" border="1">
@@ -24,19 +32,23 @@
             <tr>
               <th>Nome</th>
               <th>Marca</th>
+              <th>Teor</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Havana</td>
-              <td>Engenho Anísio Santiago</td>
-            </tr>
+            {cachaças.map((item, index) => (
+              <tr key={index}>
+                <td>{item.nome}</td>
+                <td>{item.marca}</td>
+                <td>{item.teor}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       );
     }
 
-    // Renderizando no DOM
+    // Renderizando 
     ReactDOM.createRoot(document.getElementById("root")).render(
       <div id="app">
         <Cabecalho />
@@ -46,4 +58,5 @@
   </script>
 </body>
 </html>
+
 

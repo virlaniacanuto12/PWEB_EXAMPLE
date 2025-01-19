@@ -1,0 +1,56 @@
+/* Estilo para o corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+  
+  /* Estilo para o cabeçalho */
+  h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para a tabela */
+  #tabela {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo para as células */
+  #tabela th, #tabela td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  /* Estilo para o cabeçalho da tabela */
+  #tabela th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+  }
+  
+  /* Zebra striping */
+  #tabela tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Hover effect */
+  #tabela tr:hover {
+    background-color: #ddd;
+  }
+  
+  /* Ajustes para dispositivos móveis */
+  @media screen and (max-width: 600px) {
+    #tabela {
+      width: 100%;
+    }
+  }
+   
+  
