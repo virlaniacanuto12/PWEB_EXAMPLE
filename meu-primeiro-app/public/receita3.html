@@ -1,68 +1,74 @@
 <!DOCTYPE html>
-
 <html>
-
    <head>
-      <title>ReceitaReact - 2</title>      
+      <title>Receita 3</title> 
+      <link rel="stylesheet" href="receita3.css">
+     
    </head>
 
    <body>
-      <div id="app">
+      <div id="app"></div>
+     
+      <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+      <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+      <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-      </div>
-
-
-      <script src="libs/react.js"></script>
-      <script src="libs/react-dom.js"></script>
-      <script src="libs/babel.js"></script>
-
-            
       <script type="text/babel">
-         class TabelaBebidas extends React.Component{
-            render(){
+         // Componente para o cabeçalho
+         class CabecalhoTabela extends React.Component {
+            render() {
                return (
-                  <div>
-                     <table id="tabela" border="1">
-                        <thead>
-                           <tr><th>Nome</th><th>Marca</th></tr>
-                        </thead>
-
-                        <tbody>
-                           <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
-                        </tbody>
-                     </table>
-                 </div> 
-               )
+                  <thead>
+                     <tr>
+                        <th>Nome</th>
+                        <th>Marca</th>
+                     </tr>
+                  </thead>
+               );
             }
-
-         }  
-
-         const TabelaBebidas__ = () => {
-            return (
-               <div>
-                  <h1>Tabela de Bebidas</h1>
-                  <table id="tabela" border="1">
-                     <thead>
-                        <tr><th>Nome</th><th>Marca</th></tr>
-                     </thead>
-
-                     <tbody>
-                        <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
-                     </tbody>
-                  </table>
-               </div>
-
-            )  
-
          }
 
-         
+         // Componente para as linhas da tabela
+         class LinhaTabela extends React.Component {
+            render() {
+               return (
+                  <tr>
+                     <td>{this.props.nome}</td>
+                     <td>{this.props.marca}</td>
+                  </tr>
+               );
+            }
+         }
+
+         // Componente principal da tabela
+         class TabelaBebidas extends React.Component {
+            render() {
+               const bebidas = [
+                  { nome: "Havana", marca: "Engenho Anísio Santiago" },
+                  { nome: "Johnnie Walker", marca: "Diageo" },
+                  { nome: "Chandon", marca: "Moët & Chandon" }
+               ];
+
+               return (
+                  <div>
+                     <h1>{this.props.titulo}</h1>
+                     <table id="tabela" border="1">
+                        <CabecalhoTabela />
+                        <tbody>
+                           {bebidas.map((bebida, index) => (
+                              <LinhaTabela key={index} nome={bebida.nome} marca={bebida.marca} />
+                           ))}
+                        </tbody>
+                     </table>
+                  </div>
+               );
+            }
+         }
 
          ReactDOM.render(
-            <TabelaBebidas/>
-            ,
-            document.getElementById("app"))
-
+            <TabelaBebidas titulo="Tabela de Bebidas" />,
+            document.getElementById("app")
+         );
       </script>
    </body>
 </html>
